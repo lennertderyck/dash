@@ -1,0 +1,82 @@
+[data-section="corona"] {
+    display: none;
+    
+    &.sesam-show {
+        display: block;
+    }
+}
+
+[data-section="corona"] .corona {
+    // position: fixed;
+    // left: 0px;
+    // right: 0px;
+    // bottom: 0px;
+    
+    &__wrapper {
+        width: 100%;
+        margin: 0 auto;
+        padding: 1rem 1rem 4rem 1rem;
+        border: 1px solid grey;
+        // border-bottom: none;
+        border-radius: 19px 19px 0px 0px;
+        border-radius: 19px;
+    }
+    
+    &__stats {
+        display: flex;
+        width: 100%;
+        
+        > *:first-child {border-radius: 120px 0px 0px 120px;}
+        > *:last-child {border-radius: 0px 120px 120px 0px;}
+        
+        > * {
+            position: relative;
+            height: 20px;
+        }
+        
+        .info {
+            position: absolute;
+            top: calc(100% + 10px); left: 0px; right: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            &__wrapper {
+                position: relative;
+                width: fit-content;
+                padding: .2rem .4rem .3rem .4rem;
+                background-color: #212121;
+                border-radius: 120px;
+                white-space: nowrap;
+                font-size: 75%;
+                text-align: center;
+                @include text-modern;
+                font-weight: normal;
+                
+                &::after {
+                    --size: 5px;
+                    content: '';
+                    position: absolute;
+                    left: 50%; right: 50%;
+                    bottom: 100%;
+                    width: 0;
+                    height: 0;
+                    border-left: var(--size) solid transparent;
+                    border-right: var(--size) solid transparent;
+                    border-bottom: var(--size) solid #212121;
+                    clear: both;
+                }
+            }
+        }
+    }
+    
+    &__deaths {
+        background-color: #212121;
+    }
+    &__cases {
+        background-color: #363636;
+    }
+    &__clean {
+        background-color: #504f4f;
+    }
+}

@@ -1,0 +1,13 @@
+.sesam-backdrop {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.336);
+    
+    &.sesam-hidden {
+        display: none;
+    }
+}

@@ -1,0 +1,107 @@
+[data-label="searchResults"] {
+    position: fixed;
+    bottom: 0px; left: 30px; right: 30px;
+    padding: 2rem;
+    background-color: white;
+    color: grey;
+    border-radius: 22px 22px 0px 0px;
+    z-index: 10;
+    
+    &:not(.animate__fadeInUp) {
+        bottom: -100%;
+    }
+        
+    .result {
+        display: flex;
+        flex-direction: row;
+        height: 85px;
+        background-color: #efefef;
+        border-radius: 14px;
+        // padding: 1.2rem;
+        color: inherit;
+        text-decoration: none;
+        
+        > div:nth-child(2) {padding: 1.2rem;}
+        
+        &__thumb img {
+            width: 85px;
+            height: 85px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 14px 0px 0px 14px;
+        }
+        
+        &__domain {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.4rem;
+        }
+        
+        &__favicon {
+            display: flex;
+            align-items: center;
+            margin-right: .4rem;
+            
+            img {
+                height: 15px;
+            }
+        }
+        
+        &__domain-name {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 80%;
+            font-weight: 700;
+        }
+        
+        &__snippet {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 34ch;
+        }
+    }
+}
+
+[data-form="searchEngine"] {
+    .input-wrapper {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        padding: 0 0 0 .8rem;
+        border-radius: 120px;
+        border: 1px solid grey;
+        
+        input {
+            font-family: system-ui,-apple-system,"Segoe UI",Roboto;
+            display: block;
+            height: 40px;
+            width: 50vw;
+            max-width: 50vw;
+            appearance: none;
+            border: none;
+            background: none;
+            color: white;
+            
+            &::placeholder {
+                font-family: 'sofia-pro';
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 500;
+                font-size: 80%;
+                color: rgb(182, 182, 182);
+                vertical-align: middle;
+            }
+        }
+        
+        .bx {
+            font-size: 1.4rem;
+            transform: translateY(1px);
+        }
+        
+        button {
+            height: 100%;
+            background: none;
+        }
+    }
+}

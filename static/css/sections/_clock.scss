@@ -1,0 +1,31 @@
+.clock {
+    width: fit-content;
+    margin-right: auto;
+    margin-top: -5rem;
+    font-size: 10rem;
+    margin-bottom: -2rem;
+}
+
+.details {
+    display: flex;
+    width: fit-content;
+    margin-right: auto;
+    
+    &__devider {
+        margin: 0 5px;
+    }
+    
+    &__weather {
+        .bx {
+            margin-right: 0.2rem;
+            font-size: 24px;
+            transform: translateY(2px);
+            
+            &.bxs-sun {color: #ffd607;}
+            &.bx-cloud-rain,
+            &.bx-cloud-lightning {
+                color: #7bc2fd !important;
+            }
+        }
+    }
+}

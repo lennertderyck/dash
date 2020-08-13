@@ -1,0 +1,28 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel watch index.html --target node --bundle-node-modules & browser-sync start --watch --server 'dist' --files 'dist' --no-notify",
+    "build": "parcel build index.html --target node --bundle-node-modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animate.css": "^4.1.0",
+    "bootstrap": "^5.0.0-alpha1",
+    "boxicons": "^2.0.5",
+    "browser-sync": "^2.26.12",
+    "cutleryjs": "^2.0.1",
+    "http2": "^3.3.7",
+    "moment": "^2.27.0",
+    "popper": "^1.0.1",
+    "sesam-collapse": "^5.5.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.10"
+  }
+}
