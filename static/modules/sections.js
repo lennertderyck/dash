@@ -252,10 +252,14 @@ const search = {
     
     error() {
         const $wrapper = node('[data-label="searchResults"] .search-results__wrapper');
+        const $moreResults = node('[data-label="moreResults"]');
         
         $wrapper.outerHTML = `
             <img class="d-block mx-auto" src="https://memegenerator.net/img/instances/55452028/error-404-page-not-found.jpg" width="200px">
         `;
+        
+        
+        $moreResults.href = 'https://google.be/search?q=404'
     }
 }
 
@@ -311,7 +315,9 @@ const coronaStats = {
     async render() {
         const percentages = await coronaStats.calculatePercentages();
         const $statBar = node('[data-section="corona"] .corona__stats');
+        const $loader = node('[data-section="corona"] .spinner-border');
         
+        $loader.remove();
         $statBar.innerHTML = `
             <div class="corona__deaths" style="width: ${percentages.deaths}%">
                 <div class="info">
