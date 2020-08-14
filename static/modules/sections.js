@@ -43,6 +43,14 @@ const clock = {
             console.log('clock corrected');
             clock.start();
         }, (correction-0)*1000);
+    },
+    
+    position(number) {
+        return {
+            '1': 'start',
+            '2': 'center',
+            '3': 'end'
+        }[number]
     }
 }
 
@@ -287,7 +295,6 @@ const coronaStats = {
         const timelineUrl = 'https://api.thevirustracker.com/free-api?countryTimeline=BE'
         
         const response = await fetchAPI.json(url);
-        console.log(response);
         return {
             deaths: response.countrydata[0].total_deaths,
             clean: response.countrydata[0].total_recovered,
@@ -317,7 +324,7 @@ const coronaStats = {
         const $statBar = node('[data-section="corona"] .corona__stats');
         const $loader = node('[data-section="corona"] .spinner-border');
         
-        $loader.remove();
+        if($loader) $loader.remove();
         $statBar.innerHTML = `
             <div class="corona__deaths" style="width: ${percentages.deaths}%">
                 <div class="info">

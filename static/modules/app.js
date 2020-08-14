@@ -1,6 +1,7 @@
 import {node} from 'cutleryjs';
 import {findPath} from './utils';
 import { sesam } from 'sesam-collapse';
+import { clock } from './sections';
 
 const prefs = {
     init() {
@@ -42,6 +43,9 @@ const prefs = {
         const displayCorona = prefs.importLocal('coronastats');
         if (displayCorona == 'on') applyPref.coronaStats(true)
         else applyPref.coronaStats(false);
+        
+        const clockPostition = prefs.importLocal('clock-position');
+        applyPref.clockPostition(clockPostition);
     }
 }
 
@@ -57,6 +61,18 @@ const applyPref = {
             target: 'coronaStats',
             action: state
         })
+    },
+    
+    clockPostition(number) {
+        const position = clock.position(number);
+        const $clock = node('[data-section="clock"]');
+        
+        const styles = window.getComputedStyle($clock)
+        let currentPosition = styles.getPropertyValue('align-items');
+        currentPosition = currentPosition.replace('flex-', '');
+        
+        $clock.classList.remove(`align-items-${currentPosition}`)
+        $clock.classList.add(`align-items-${position}`)
     }
 }
 

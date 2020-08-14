@@ -47,9 +47,8 @@ const app = {
             }, false)
             
             eventCallback('[data-form="appPrefs"]', (target) => {
-                const formData = getFormData(target);
+                const formData = getFormData(target);                
                 prefs.set(formData);
-                
                 app.reload();
             }, false)
         })
@@ -58,7 +57,7 @@ const app = {
 
 const creds = {
     async get() {
-        return await fetchAPI.json('https://api.lennertderyck.vercel.app/api/dashboard', {mode: 'cors'})
+        return await fetchAPI.json('https://api.lennertderyck.be/api/dashboard', {mode: 'cors'})
     },
     
     async test(allowCallback, errCallback) {

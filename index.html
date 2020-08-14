@@ -36,15 +36,15 @@
 </head>
 <body class="d-flex align-items-center justify-content-center" data-sesam-target="searchCollapse">
     <div id="app">
-        <section data-section="clock" class="mt-n5">
+        <section data-section="clock" class="mt-n5 d-flex flex-column align-items-start">
             <div class="clock">
                 <span class="clock__hh">23</span><span class="clock__divider">:</span><span class="clock__mm">40</span><span class="clock__ss"></span>
             </div>
-        </section>
-        <section data-section="details">
-            <div class="details">
-                locatie ophalen ...
-            </div>
+            <section data-section="details">
+                <div class="details">
+                    locatie ophalen ...
+                </div>
+            </section>
         </section>
         <section data-section="search" class="mt-5 mb-4">
             <div class="search">
@@ -105,6 +105,17 @@
                             <div class="form-check form-switch">
                                 <input class="form-check-input" name="coronastats" type="checkbox" id="pref_showCoronaStats">
                                 <label class="form-check-label" for="pref_showCoronaStats">Toon coronadata</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col">
+                            <label for="pref_clockPosition" class="form-label mr-4" style="white-space: nowrap;">Positie klok</label>
+                            <input type="range" name='clock-position' class="form-range" id="pref_clockPosition" min="1" max="3">
+                            <div class="d-flex justify-content-between">
+                                <span class="form-text">Links</span>
+                                <span class="form-text">Midden</span>
+                                <span class="form-text">Rechts</span>
                             </div>
                         </div>
                     </div>
