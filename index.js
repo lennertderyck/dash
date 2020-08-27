@@ -1,5 +1,5 @@
 import {clock, weather, search, calendar, coronaStats} from './static/modules/sections';
-import {eventCallback, getFormData, node, fetchAPI} from 'cutleryjs';
+import {eventCallback, getFormData, node, fetchAPI, connection} from 'cutleryjs/src/js/index';
 import {sesamCollapse, sesam} from 'sesam-collapse';
 import {prefs} from './static/modules/app';
 
@@ -11,6 +11,11 @@ const app = {
         // sections
         clock.init();
         app.reload();
+        
+        console.log(connection.state());
+        connection.watch((state) => {
+            if (state != 0) app.reload();
+        })
     },
     
     async reload() {

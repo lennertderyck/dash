@@ -19,12 +19,12 @@ const prefs = {
     },
     
     importLocal(prefKey) {
-        const savedPrefs = JSON.parse(window.localStorage.getItem('savedPrefs'));
-        return savedPrefs[findPath(savedPrefs, prefKey)[0]][1];
+        const savedPrefs = JSON.parse(window.localStorage.getItem('savedPrefs')) || [];
+        if (savedPrefs.length != 0) return savedPrefs[findPath(savedPrefs, prefKey)[0]][1];
     },
     
     setForm() {
-        const savedPrefs = JSON.parse(window.localStorage.getItem('savedPrefs'))
+        const savedPrefs = JSON.parse(window.localStorage.getItem('savedPrefs')) || [];
         savedPrefs.forEach((pref) => {
             const value = pref[1], key = pref[0]
             const $input = node(`[data-form="appPrefs"] input[name="${key}"]`);

@@ -95,7 +95,6 @@ const weather = {
                 reject({error: 'browser is too old'});
             }
         })
-        
     },
     
     async getByCoords() {    

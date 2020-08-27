@@ -15,7 +15,7 @@
     "bootstrap": "^5.0.0-alpha1",
     "boxicons": "^2.0.5",
     "browser-sync": "^2.26.12",
-    "cutleryjs": "^2.0.1",
+    "cutleryjs": "^2.2.0",
     "http2": "^3.3.7",
     "moment": "^2.27.0",
     "popper": "^1.0.1",
