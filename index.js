@@ -2,6 +2,9 @@ import {clock, weather, search, calendar, coronaStats} from './static/modules/se
 import {eventCallback, getFormData, node, fetchAPI, connection} from 'cutleryjs/src/js/index';
 import {sesamCollapse, sesam} from 'sesam-collapse';
 import {prefs} from './static/modules/app';
+import {siteTitle} from './static/modules/utils';
+
+const title = new siteTitle('Dashboard', ' | ');
 
 const app = {
     init() {
@@ -45,6 +48,7 @@ const app = {
             
             eventCallback('[data-form="searchEngine"]', (target) => {
                 const formData = getFormData(target);
+                title.set(`zoeken naar ${formData.get('query')}`);
                 search.do(formData);
                 
                 const $moreResults = node('[data-label="moreResults"]')

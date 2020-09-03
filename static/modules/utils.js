@@ -1,4 +1,7 @@
 "use strict";
+
+import { returnNode } from "cutleryjs";
+
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Create a random string with length equals 4.
@@ -146,4 +149,38 @@ export const findPath = (array, value) => {
     }([]));
 
     return path;
+}
+
+export class siteTitle {
+    constructor(baseText = '', spacer = ' | ') {
+        this.$title = returnNode('title');
+        this.baseText = baseText;
+        this.spacerText = spacer;
+        
+        this.display(this.baseText);
+    }
+    
+    base(string) {
+        this.baseText = string;
+        this.display();
+    }
+    
+    spacer(string) {
+        this.spacerText = string;
+        this.display();
+    }
+    
+    set(string) {
+        this.titleText = string;
+        this.display();
+    }
+    
+    reset() {
+        this.display(this.baseText);
+    }
+    
+    display(string = `${this.titleText}${this.spacerText}${this.baseText}`) {
+        console.log(string);
+        this.$title.innerHTML = string;
+    }
 }

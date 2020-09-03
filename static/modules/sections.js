@@ -2,10 +2,11 @@ import moment from 'moment';
 import 'moment/locale/nl-be';
 import {node, fetchAPI, Element} from 'cutleryjs';
 import {sesam} from 'sesam-collapse';
-import {LocalDB} from './utils';
+import {LocalDB, siteTitle} from './utils';
 import {prefs} from './app';
 
 const savedCoords = new LocalDB('savedCoords');
+const title = new siteTitle('Dashboard', ' | ');
 
 const clock = {
     init() {
@@ -176,7 +177,7 @@ const search = {
         })
 
         const query = formData.get('query');
-        const resultsData =  await fetchAPI.json(`https://www.googleapis.com/customsearch/v1?key=AIzaSyDfIB_kua_hd8VLeIzKGOoTWJQihAM9ouw&cx=009271218045259039608:9chrbhrnk50&q=${query}&num=4`);
+        const resultsData = await fetchAPI.json(`https://www.googleapis.com/customsearch/v1?key=AIzaSyDfIB_kua_hd8VLeIzKGOoTWJQihAM9ouw&cx=009271218045259039608:9chrbhrnk50&q=${query}&num=4`);
         if (resultsData.items) search.display(resultsData, query);
         else search.error();  
         
@@ -242,6 +243,7 @@ const search = {
     },
     
     reset() {
+        title.reset();
         const $results = node('[data-label="searchResults"]');
         const $wrapper = node('[data-label="searchResults"] .search-results__wrapper');
         
